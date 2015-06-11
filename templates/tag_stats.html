@@ -1,42 +1,101 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Stack Overflow Home Page Tag Stats</title>
+        <!-- metas -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <style>
-            p {
-                color: gray;
-                font: 25px Helvetica, sans-serif;
-                margin-top: 200px;
-                text-align: center;
-            }
-        </style>
+        <!-- Bootsrap from CDN -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+        <title>Stack Overflow Home Page Tag Stats</title>
     </head>
     <body>
-        <p>Cool content will appear here.</p>
-        <table>
-            <thead>
-                <tr>
-                    <td>
-                        variable
-                    </td>
-                    <td>
-                        value
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in tag_stats %}
-                    <tr>
-                        <td>
+        <div class="container">
+            <div class="row">
+                <div class="title col-xs-6 col-xs-offset-3">
+                    <h1>
+                        Stack Overflow Homepage Stats
+                    </h1>
+                    <dl>
+                        <dt>URL</dt>
+                        <dd><a target="_blank" href="{{ so_url }}">{{ so_url }}</a></dd>
+                        <dt>time</dt>
+                        <dd>
+                            {{ req_time.strftime('%Y-%m-%d at %H:%M:%S') }}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="row">
+                <div class="content col-xs-6 col-xs-offset-3">
+                    <h3>
+                        Tag frequencies
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    name
+                                </th>
+                                <th class="text-right">
+                                    n
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name,n in tag_freqs.iteritems() %}
+                                <tr>
+                                    <td>
+                                        <code>
+                                             {{ name }}
+                                        </code>
+                                    </td>
+                                    <td class="text-right">
+                                        {{ n }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="content col-xs-6 col-xs-offset-3">
+                    <h3>
+                        Top questions
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    name
+                                </th>
+                                <th>
+                                    n
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name,n in tag_freqs.iteritems() %}
+                                <tr>
+                                    <td>
+                                        <code>
+                                             {{ name }}
+                                        </code>
+                                    </td>
+                                    <td>
+                                        {{ n }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            -->
 
-                        </td>
-                        <td>
-                            {{ item }}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        </div>
     </body>
 </html>
