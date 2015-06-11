@@ -100,6 +100,37 @@
                     </table>
                 </div>
             </div>
+            <div class="row">
+                <div class="content col-xs-6 col-xs-offset-3">
+                    <h3>
+                        Question statistics
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    measure
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key,val in question_stats.iteritems() %}
+                                <tr>
+                                    <td>
+                                        {{ val['desc'] }}
+                                    </td>
+                                    <td class="text-right">
+                                        {{ '%.2f' % val['x'] }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

@@ -2,6 +2,7 @@ from requests import get as http_get
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
+from numpy import average, median
 from tag import Tag
 from question import Question
 
@@ -55,6 +56,13 @@ class Page:
         return top_questions
 
     def question_stats(self):
-        
+        question_stats = {
+                            'avg_votes': {'desc': 'average votes',
+                                          'x': average([q.votes() for q in self.questions()])},
+                            'median_views': {'desc': 'median views',
+                                             'x': median([q.views() for q in self.questions()])},
+                          }
+        return question_stats
+
 
 

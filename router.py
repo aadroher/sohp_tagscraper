@@ -12,9 +12,11 @@ def tag_stats():
     # tags = parser.get_tags(parser._dom)
     tag_freqs = page.tag_freqs()
     top_questions = page.top_questions()
+    question_stats = page.question_stats()
 
     return render_template('stats.html', tag_freqs=tag_freqs,
                                          top_questions=top_questions,
+                                         question_stats=question_stats,
                                          so_url=so_url,
                                          req_time=page.req_time)
 if __name__ == '__main__':
