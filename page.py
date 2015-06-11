@@ -12,7 +12,6 @@ class Page:
         self.url = url
         self.req_time = None
         self._dom = self._load_dom()
-        # self.questions = self._get_questions()
 
     def _load_dom(self):
         dom = BeautifulSoup(http_get(self.url).text)
