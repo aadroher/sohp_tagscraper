@@ -1,2 +1,2 @@
-Stack Overflow Home Page Tag Scraper
-===================================
+Stack Overflow Home Page Scraper
+================================
