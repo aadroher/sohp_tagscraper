@@ -61,7 +61,7 @@
                     </table>
                 </div>
             </div>
-            <!--<div class="row">
+            <div class="row">
                 <div class="content col-xs-6 col-xs-offset-3">
                     <h3>
                         Top questions
@@ -70,23 +70,29 @@
                         <thead>
                             <tr>
                                 <th>
-                                    name
+                                    measure
                                 </th>
                                 <th>
-                                    n
+                                    title
+                                </th>
+                                <th>
+                                    tags
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for name,n in tag_freqs.iteritems() %}
+                            {% for key,val in top_questions.iteritems() %}
                                 <tr>
                                     <td>
-                                        <code>
-                                             {{ name }}
-                                        </code>
+                                        {{ val['desc'] }}
                                     </td>
                                     <td>
-                                        {{ n }}
+                                        {{ val['question'].title() }}
+                                    </td>
+                                    <td>
+                                        {% for tag in val['question'].tags() %}
+                                            <code>{{ tag.name() }}</code>
+                                        {% endfor %}
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -94,8 +100,37 @@
                     </table>
                 </div>
             </div>
-            -->
+            <div class="row">
+                <div class="content col-xs-6 col-xs-offset-3">
+                    <h3>
+                        Question statistics
+                    </h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    measure
+                                </th>
+                                <th>
 
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key,val in question_stats.iteritems() %}
+                                <tr>
+                                    <td>
+                                        {{ val['desc'] }}
+                                    </td>
+                                    <td class="text-right">
+                                        {{ '%.2f' % val['x'] }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>
