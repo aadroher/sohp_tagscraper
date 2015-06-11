@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stack Overflow Home Page Tag Stats</title>
+
+        <style>
+            p {
+                color: gray;
+                font: 25px Helvetica, sans-serif;
+                margin-top: 200px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Cool content will appear here.</p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        variable
+                    </td>
+                    <td>
+                        value
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in tag_stats %}
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            {{ item }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
